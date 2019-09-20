@@ -8,7 +8,7 @@ FILE_OLDIP="${DIR_CACHE}/$(xxhsum "$tmp" | head -c 16)"
 rm "$tmp"
 
 oldip="$(cat "${FILE_OLDIP}")"
-newip="$(myip public)"
+newip="$(curl https://api.ipify.org)"
 
 if [ -z "${newip}" ] ; then
   >&2 echo "[ERROR] could not resolve global IP address"
